@@ -7,11 +7,12 @@ services:
     environment:
       - node.name=es-node-01 # 노드 이름. 안 붙이면 임의값들어감
       - cluster.name=es-docker-cluster # 클러스터 명
-      - xpack.security.enabled=false # xpack을 사용하지 않을 것임
+      - xpack.security.enabled=false # xpack security를 사용하지 않을 것임 (x-pack : elk stack 확장팩 느낌) 게다가 이거 유료임
       - "discovery.type=single-node" 
       - bootstrap.memory_lock=true # 엘라스틱이 사용할 메모리 lock
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # jvm이 사용 가능한 힙 사이즈
       - network.host=0.0.0.0 # 특정 ip만 접속 가능. 여기선 0.0.0.0 즉, 모두 접근 가능으로 열어둠
+      - "path.repo=./elasticsearch/backup" # 백업을 위한 스냅샷 저장 경로
     ulimits: # 프로세스 자원 한도 설정
       memlock: # 메모리 내 주소 공간의 최대 크기
         soft: -1 # 기본 적용 값
