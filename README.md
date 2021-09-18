@@ -7,4 +7,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/6.4/docker.html#docker
 docker-compose up
 ```
 
-`
+## avalable version
+
+7.10.2
+6.4.3
